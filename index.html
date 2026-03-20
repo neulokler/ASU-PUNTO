@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ASU PUNTO | Restaurante peruano</title>
+  <meta name="description" content="ASU PUNTO: auténtico sabor peruano. Reserva por WhatsApp, mira el menú y descubre nuestros platos estrella." />
+
+  <!-- Open Graph (WhatsApp/Instagram) -->
+  <meta property="og:title" content="ASU PUNTO | Restaurante peruano" />
+  <meta property="og:description" content="Auténtico sabor peruano. Ver menú y reservar por WhatsApp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="asupunto_site_assets/logo.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts (opcional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0f16;
+      --paper:#fbf7f0;
+      --text:#111827;
+      --muted:#6b7280;
+      --brand:#ef4444;
+      --gold:#c6a24a;
+      --nav:#111418cc;
+      --ring: rgba(255,255,255,.10);
+      --shadow: 0 24px 80px rgba(0,0,0,.30);
+      --radius: 22px;
+      --max: 1220px;
+    }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #0b0f16, #070a10);
+      color: #e5e7eb;
+      overflow-x:hidden;
+    }
+    a{ color: inherit; }
+
+    /* NAV */
+    .nav{
+      position: sticky; top: 0; z-index: 50;
+      background: var(--nav);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:baseline; gap: 2px;
+      font-family: "Playfair Display", serif;
+      font-weight: 700; letter-spacing: .6px;
+      text-transform: uppercase;
+      font-size: 22px;
+      color:#f7f2e7;
+      white-space:nowrap;
+    }
+    .brand .gold{ color: var(--gold); }
+
+    .brand-logo{
+      display:flex; align-items:center; gap:10px;
+      white-space:nowrap;
+    }
+    .logo-img{
+      height:36px;
+      width:auto;
+      display:block;
+      border-radius:10px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.10);
+    }
+    @media (max-width: 980px){
+      .logo-img{ height:32px; border-radius:9px; }
+    }
+
+
+    .menu{
+      display:flex; gap: 14px; align-items:center; flex-wrap:wrap;
+      justify-content:center;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 999px;
+      background: rgba(0,0,0,.10);
+    }
+    .menu a{
+      color: rgba(255,255,255,.78);
+      text-decoration:none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: background .2s ease, color .2s ease;
+    }
+    .menu a:hover{ background: rgba(255,255,255,.08); color:#fff; }
+
+    .cta-nav{
+      border: none; border-radius: 12px;
+      padding: 10px 14px;
+      font-weight: 800;
+      background: var(--brand);
+      color: #fff;
+      cursor:pointer;
+      transition: transform .08s ease, filter .2s ease;
+      box-shadow: 0 16px 40px rgba(239,68,68,.25);
+      white-space:nowrap;
+    }
+    .cta-nav:hover{ filter: brightness(1.03); }
+    .cta-nav:active{ transform: translateY(1px); }
+
+    .hamb{
+      display:none;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:#fff;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 900;
+      cursor:pointer;
+    }
+    .mobile-menu{
+      display:none;
+      padding: 0 18px 16px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .mobile-menu a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 14px;
+      text-decoration:none;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.92);
+      margin-top: 10px;
+      font-weight: 700;
+    }
+    .mobile-menu a:hover{ background: rgba(255,255,255,.08); }
+
+    /* HERO */
+    .hero-wrap{ padding: 22px 0 46px; }
+    .hero{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .hero-photo{
+      position:relative;
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.08);
+      background: #0b1220;
+      min-height: 560px;
+    }
+    /* FOTO PRINCIPAL:
+       - coloca una imagen en la misma carpeta llamada: hero.jpg
+       - si no existe, se verá un fondo bonito (fallback)
+    */
+    .hero-photo::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.58)),
+        url("hero.jpg") center/cover no-repeat;
+      filter: saturate(1.05) contrast(1.02);
+    }
+    .hero-photo.fallback::before{
+      background:
+        radial-gradient(1200px 700px at 20% 20%, rgba(239,68,68,.25), transparent 60%),
+        radial-gradient(900px 600px at 70% 30%, rgba(198,162,74,.16), transparent 62%),
+        linear-gradient(180deg, #0b1220, #070a10);
+    }
+    .badge{
+      position:absolute; left: 18px; top: 18px;
+      display:inline-flex; align-items:center; gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(17,24,39,.55);
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,.92);
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .badge .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: var(--brand);
+      box-shadow: 0 0 0 3px rgba(239,68,68,.22);
+    }
+    .count{
+      position:absolute; right: 18px; bottom: 18px;
+      width: 126px; height: 126px;
+      border-radius: 999px;
+      background: rgba(198,162,74,.96);
+      color:#0b1220;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      font-weight: 900;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.25);
+      padding: 10px;
+    }
+    .count b{ font-size: 34px; line-height: 1; display:block; }
+    .count span{ font-size: 11px; letter-spacing: .4px; text-transform: uppercase; }
+
+    .hero-card{
+      background: var(--paper);
+      color: var(--text);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(17,24,39,.08);
+      padding: 28px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute; inset:-120px -120px auto auto;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle at 30% 30%, rgba(239,68,68,.22), transparent 60%);
+      filter: blur(2px);
+    }
+    h1{
+      margin: 0 0 10px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(38px, 3.3vw, 52px);
+      line-height: 1.04;
+    }
+    h1 .red{ color: #b91c1c; }
+    .lead{ margin: 0 0 16px; color: var(--muted); font-size: 16px; line-height: 1.65; }
+    .actions{ display:flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap: 10px;
+      padding: 12px 16px; border-radius: 14px;
+      text-decoration:none; font-weight: 900;
+      border: 1px solid rgba(17,24,39,.14);
+      transition: transform .08s ease, filter .2s ease, background .2s ease;
+      min-width: 170px;
+    }
+    .btn.primary{ background: var(--brand); color:#fff; border-color: rgba(239,68,68,.55); }
+    .btn.primary:hover{ filter: brightness(1.03); }
+    .btn.ghost{ background: transparent; color: #111827; }
+    .btn.ghost:hover{ background: rgba(17,24,39,.05); }
+    .btn:active{ transform: translateY(1px); }
+
+    .rating{
+      margin-top: 14px;
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      flex-wrap:wrap;
+      color: rgba(17,24,39,.75);
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .stars{ color: var(--gold); letter-spacing: 1px; }
+
+    /* SECTION BASE */
+    section{ max-width: var(--max); margin: 0 auto; padding: 64px 18px; }
+    .section-title{
+      margin: 0 0 10px;
+      font-family: "Playfair Display", serif;
+      font-size: 34px;
+    }
+    .section-sub{
+      margin: 0 0 22px;
+      color: rgba(229,231,235,.78);
+      line-height: 1.65;
+      max-width: 860px;
+    }
+    .cards-light{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+      border-top: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    /* GRID */
+    .grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .card{
+      grid-column: span 4;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 14px 46px rgba(0,0,0,.22);
+    }
+    .card h3{ margin: 0 0 6px; font-size: 16px; }
+    .card p{ margin: 0; color: rgba(229,231,235,.78); line-height: 1.55; font-size: 14px; }
+
+    /* PHOTO PLACEHOLDERS */
+    .photo{
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      min-height: 190px;
+      position: relative;
+    }
+    .photo::before{
+      content: "";
+      position:absolute; inset:0;
+      background: radial-gradient(600px 260px at 30% 20%, rgba(239,68,68,.18), transparent 65%),
+                  radial-gradient(520px 260px at 80% 40%, rgba(198,162,74,.14), transparent 65%),
+                  linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    }
+    .photo-label{
+      position:absolute;
+      inset:auto 12px 12px 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.40);
+      border: 1px solid rgba(255,255,255,.16);
+      color: rgba(255,255,255,.92);
+      font-weight: 900;
+      font-size: 13px;
+      backdrop-filter: blur(8px);
+    }
+    .price{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      margin-top: 10px;
+      font-weight: 900;
+      color: #fff;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.14);
+      padding: 8px 10px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+
+    /* MENU DAY */
+    .menu-day{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .menu-box{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      padding: 18px;
+    }
+    .menu-box h3{ margin: 0 0 10px; }
+    .menu-box ul{ margin: 0; padding-left: 18px; color: rgba(229,231,235,.80); line-height:1.75; }
+    .menu-box li{ margin: 4px 0; }
+    .edit-hint{
+      margin-top: 10px;
+      color: rgba(229,231,235,.65);
+      font-size: 13px;
+    }
+
+    /* LOCALS */
+    .loc-actions{ margin-top: 10px; display:flex; gap: 10px; flex-wrap:wrap; }
+    .loc-actions a{
+      display:inline-flex; align-items:center; justify-content:center; gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.12);
+      color: rgba(255,255,255,.90);
+      text-decoration:none;
+      font-weight: 900;
+      font-size: 13px;
+    }
+    .loc-actions a:hover{ background: rgba(255,255,255,.08); }
+
+    /* FOOTER */
+    footer{
+      padding: 30px 18px 46px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: rgba(229,231,235,.72);
+      text-align:center;
+    }
+    footer a{ color: rgba(255,255,255,.85); text-decoration:none; font-weight:800; }
+    footer a:hover{ text-decoration: underline; }
+
+    /* WhatsApp floating */
+    .wa{
+      position: fixed; right: 18px; bottom: 18px; z-index: 60;
+      width: 60px; height: 60px; border-radius: 999px;
+      background: #22c55e;
+      display:grid; place-items:center;
+      box-shadow: 0 18px 55px rgba(0,0,0,.45);
+      border: 1px solid rgba(255,255,255,.25);
+      text-decoration:none;
+      transition: transform .08s ease, filter .2s ease;
+    }
+    .wa:hover{ filter: brightness(1.03); }
+    .wa:active{ transform: translateY(1px); }
+    .wa svg{ width: 30px; height: 30px; fill: #062b14; }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .menu{ display:none; }
+      .hamb{ display:inline-flex; }
+      .hero{ grid-template-columns: 1fr; }
+      .hero-photo{ min-height: 360px; }
+      .card{ grid-column: span 12; }
+      .menu-day{ grid-template-columns: 1fr; }
+      .btn{ min-width: 0; width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand-logo">
+        <img class="logo-img" src="asupunto_site_assets/logo_nav.jpg" alt="ASU PUNTO logo">
+        <div class="brand">ASU<span class="gold">PUNTO</span></div>
+      </div>
+
+      <div class="menu" aria-label="Menú principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#platos">Platos</a>
+        <a href="#carta">Carta</a>
+        <a href="#locales">Locales</a>
+        <a href="#resenas">Reseñas</a>
+        <a href="#galeria">Galería</a>
+      </div>
+
+      <button class="hamb" id="hamb">☰</button>
+      <button class="cta-nav" id="btnReservarTop">Reservar</button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#inicio">Inicio</a>
+      <a href="#platos">Platos estrella</a>
+      <a href="#carta">Menú / Carta</a>
+      <a href="#locales">Locales</a>
+      <a href="#resenas">Reseñas</a>
+      <a href="#galeria">Galería</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero-wrap" id="inicio">
+    <div class="hero">
+      <div class="hero-photo" id="heroPhoto">
+        <div class="badge"><span class="dot"></span> Restaurante Peruano • Barcelona</div>
+        <div class="count"><div><b>2</b><span>Locales en<br>Barcelona</span></div></div>
+      </div>
+
+      <div class="hero-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+          <img src="asupunto_site_assets/logo.jpg" alt="ASU PUNTO" style="height:46px;width:auto;border-radius:12px;border:1px solid rgba(17,24,39,.10);box-shadow:0 10px 26px rgba(0,0,0,.12);">
+          <div style="font-weight:900;color:#111827;letter-spacing:.3px;">Peruvian food</div>
+        </div>
+
+        <h1>Auténtico sabor <span class="red">peruano</span></h1>
+        <p class="lead">Ceviche, pollo a la brasa, anticuchos y más. Reserva en 1 click por WhatsApp.</p>
+
+        <div class="actions">
+          <a class="btn primary" href="#carta">🍽️ Ver Menú</a>
+          <a class="btn ghost" href="https://wa.me/34631766551?text=Hola%20ASU%20PUNTO%2C%20quisiera%20reservar%20una%20mesa%20por%20favor." target="_blank" rel="noopener">📞 Reservar</a>
+        </div>
+
+        <div class="rating">
+          <span class="stars">★★★★★</span>
+          <span>4,4/5 en Google · +109 reseñas</span>
+          <!-- CAMBIA este link por el de tu ficha Google -->
+          <a href="#" style="color:#111827; font-weight:900; text-decoration:none;">Ver ficha</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLATOS ESTRELLA -->
+  <section id="platos">
+    <h2 class="section-title">Platos estrella</h2>
+    <p class="section-sub">Coloca 6 fotos de platos. Solo tienes que reemplazar los nombres de archivo (ej: plato1.jpg) y poner los precios.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="photo" style="background-image:url('plato1.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-label">FOTO: plato1.jpg</div>
+        </div>
+        <h3 style="margin-top:12px;">Ceviche clásico</h3>
+        <div class="price">Desde 12,90€</div>
+      </div>
+
+      <div class="card">
+        <div class="photo" style="background-image:url('plato2.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-label">FOTO: plato2.jpg</div>
+        </div>
+        <h3 style="margin-top:12px;">Pollo a la brasa</h3>
+        <div class="price">Desde 13,00€</div>
+      </div>
+
+      <div class="card">
+        <div class="photo" style="background-image:url('plato3.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-label">FOTO: plato3.jpg</div>
+        </div>
+        <h3 style="margin-top:12px;">Anticuchos</h3>
+        <div class="price">Desde 11,50€</div>
+      </div>
+
+      <div class="card">
+        <div class="photo" style="background-image:url('plato4.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-label">FOTO: plato4.jpg</div>
+        </div>
+        <h3 style="margin-top:12px;">Arroz chaufa</h3>
+        <div class="price">Desde 10,90€</div>
+      </div>
+
+      <div class="card">
+        <div class="photo" style="background-image:url('plato5.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-label">FOTO: plato5.jpg</div>
+        </div>
+        <h3 style="margin-top:12px;">Parihuela</h3>
+        <div class="price">Desde 14,90€</div>
+      </div>
+
+      <div class="card">
+        <div class="photo" style="background-image:url('plato6.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-label">FOTO: plato6.jpg</div>
+        </div>
+        <h3 style="margin-top:12px;">Lomo saltado</h3>
+        <div class="price">Desde 12,50€</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENÚ / CARTA + MENÚ DEL DÍA -->
+  <section id="carta" class="cards-light">
+    <h2 class="section-title">Menú / Carta</h2>
+    <p class="section-sub">
+      Puedes enlazar tu carta PDF (ej: carta.pdf). También puedes editar el “Menú del día” aquí mismo.
+    </p>
+
+    <div class="menu-day">
+      <div class="menu-box">
+        <h3>📄 Carta completa (PDF)</h3>
+        <p style="margin:0; color:rgba(229,231,235,.80); line-height:1.6;">
+          Sube un archivo llamado <b>carta.pdf</b> en la misma carpeta y activa este botón:
+        </p>
+        <div class="loc-actions">
+          <a href="carta.pdf" target="_blank" rel="noopener">Ver carta PDF</a>
+        </div>
+        <div class="edit-hint">Si todavía no tienes PDF, déjalo así y luego lo conectamos.</div>
+      </div>
+
+      <div class="menu-box">
+        <h3>🍛 Menú del día (editable)</h3>
+        <div class="edit-hint">Edita este bloque y listo (sin tocar diseño).</div>
+        <ul id="menuDia">
+          <li><b>Entrantes:</b> Ceviche · Causa · Tiradito · Sopa</li>
+          <li><b>Segundos:</b> Arroz con pollo · Pollo a la brasa · Chicharrón · Tallarín</li>
+          <li><b>Precio:</b> 13€ (incluye bebida y postre)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALES -->
+  <section id="locales">
+    <h2 class="section-title">Locales</h2>
+    <p class="section-sub">Edita dirección, metro y horario. En “Cómo llegar” pega tu link de Google Maps.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>📍 Sant Boi</h3>
+        <p>Calle Joan Burgada 2, Sant Boi<br>🚆 L8 MOLÍ NOU<br>🕒 Horario: 12:00–23:00</p>
+        <div class="loc-actions">
+          <a href="https://www.google.com/maps/place/Asu+Punto+Sant+Boi/" target="_blank" rel="noopener">🗺️ Cómo llegar</a>
+          <a href="https://wa.me/34631766551?text=Hola%20ASU%20PUNTO%2C%20quisiera%20reservar%20en%20Sant%20Boi." target="_blank" rel="noopener">💬 Reservar</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>📍 Hospitalet</h3>
+        <p>Carrer de Toledo 10, Hospitalet<br>🚆 L5 CANVIDALET<br>🕒 Horario: 12:00–23:00</p>
+        <div class="loc-actions">
+          <a href="https://www.google.com/maps/search/?api=1&query=Carrer%20de%20Toledo%2010%20Hospitalet" target="_blank" rel="noopener">🗺️ Cómo llegar</a>
+          <a href="https://wa.me/34631766551?text=Hola%20ASU%20PUNTO%2C%20quisiera%20reservar%20en%20Hospitalet." target="_blank" rel="noopener">💬 Reservar</a>
+        </div>
+      </div>
+
+      <div class="card" id="reservar">
+        <h3>📞 Reservas</h3>
+        <p>WhatsApp: <b>631 766 551</b><br>Si usas TheFork / CoverManager, pega aquí el link.</p>
+        <div class="loc-actions">
+          <a href="https://wa.me/34631766551?text=Hola%20ASU%20PUNTO%2C%20quiero%20reservar%20una%20mesa%20para%20__%20personas%20a%20las%20__%3A__." target="_blank" rel="noopener">✅ Reservar ahora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEÑAS -->
+  <section id="resenas" class="cards-light">
+    <h2 class="section-title">Reseñas</h2>
+    <p class="section-sub">Deja 6–9 reseñas cortas. (Luego, si quieres, integramos Google Reviews con API).</p>
+    <div class="grid">
+      <div class="card"><h3>★★★★★</h3><p>“Reseña 1 (edita texto)”</p></div>
+      <div class="card"><h3>★★★★★</h3><p>“Reseña 2 (edita texto)”</p></div>
+      <div class="card"><h3>★★★★★</h3><p>“Reseña 3 (edita texto)”</p></div>
+      <div class="card"><h3>★★★★★</h3><p>“Reseña 4 (edita texto)”</p></div>
+      <div class="card"><h3>★★★★★</h3><p>“Reseña 5 (edita texto)”</p></div>
+      <div class="card"><h3>★★★★★</h3><p>“Reseña 6 (edita texto)”</p></div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria">
+    <h2 class="section-title">Galería</h2>
+    <p class="section-sub">Pon 9–12 fotos: (gal1.jpg … gal12.jpg). Solo sube las imágenes con esos nombres y listo.</p>
+
+    <div class="grid">
+      <!-- 12 placeholders -->
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal1.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal1.jpg</div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal2.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal2.jpg</div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal3.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal3.jpg</div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal4.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal4.jpg</div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal5.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal5.jpg</div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal6.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal6.jpg</div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal7.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal7.jpg</div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal8.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal8.jpg</div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal9.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal9.jpg</div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal10.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal10.jpg</div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal11.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal11.jpg</div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal12.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal12.jpg</div></div></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © <span id="year"></span> ASU PUNTO ·
+    <a href="https://wa.me/34631766551" target="_blank" rel="noopener">WhatsApp</a>
+    · <a href="#" target="_blank" rel="noopener">Instagram</a>
+    · <a href="#" target="_blank" rel="noopener">TikTok</a>
+    · <a href="#" target="_blank" rel="noopener">Política de privacidad</a>
+  </footer>
+
+  <!-- WhatsApp floating -->
+  <a class="wa" href="https://wa.me/34631766551?text=Hola%20ASU%20PUNTO%2C%20quisiera%20informaci%C3%B3n%20por%20favor." target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M19.11 17.53c-.26-.13-1.52-.75-1.75-.83-.24-.09-.41-.13-.58.13-.17.26-.66.83-.81 1-.15.17-.3.19-.56.06-.26-.13-1.1-.4-2.1-1.29-.78-.69-1.31-1.54-1.46-1.8-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.39-.8-1.9-.21-.5-.42-.43-.58-.44l-.5-.01c-.17 0-.45.06-.69.32-.24.26-.9.88-.9 2.15 0 1.26.92 2.48 1.05 2.65.13.17 1.8 2.75 4.36 3.85.61.26 1.09.42 1.46.54.61.19 1.16.16 1.6.1.49-.07 1.52-.62 1.73-1.23.22-.61.22-1.13.15-1.23-.06-.1-.23-.16-.49-.29zM16.01 3C9.39 3 4 8.23 4 14.67c0 2.54.88 4.88 2.36 6.76L5 29l7.77-1.98c1.82.98 3.91 1.55 6.24 1.55 6.62 0 12.01-5.23 12.01-11.67S22.63 3 16.01 3zm0 21.3c-2.12 0-4.09-.63-5.73-1.7l-.41-.26-4.62 1.18 1.2-4.42-.29-.44c-1.2-1.78-1.84-3.85-1.84-6 0-5.99 5.03-10.86 11.69-10.86 6.66 0 11.69 4.87 11.69 10.86 0 5.99-5.03 10.86-11.69 10.86z"/>
+    </svg>
+  </a>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // fallback foto hero si no existe hero.jpg
+    (function(){
+      const img = new Image();
+      img.onerror = () => document.getElementById("heroPhoto").classList.add("fallback");
+      img.src = "hero.jpg";
+    })();
+
+    // Reservar top
+    document.getElementById("btnReservarTop").addEventListener("click", () => {
+      document.getElementById("reservar").scrollIntoView({behavior:"smooth"});
+    });
+
+    // Mobile menu
+    const hamb = document.getElementById("hamb");
+    const mm = document.getElementById("mobileMenu");
+    hamb.addEventListener("click", () => {
+      const open = mm.style.display === "block";
+      mm.style.display = open ? "none" : "block";
+    });
+    mm.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mm.style.display = "none"));
+  </script>
+</body>
+</html>
