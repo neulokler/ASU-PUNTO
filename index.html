@@ -16,7 +16,7 @@
   <!-- Fonts (opcional) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -35,12 +35,8 @@
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
     body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: linear-gradient(180deg, #0b0f16, #070a10);
-      color: #e5e7eb;
-      overflow-x:hidden;
-    }
+  font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
     a{ color: inherit; }
 
     /* NAV */
@@ -488,7 +484,7 @@
   <!-- PLATOS ESTRELLA -->
   <section id="platos">
     <h2 class="section-title">Platos bandera</h2>
-    <p class="section-sub">Coloca 6 fotos de platos. Solo tienes que reemplazar los nombres de archivo (ej: plato1.jpg) y poner los precios.</p>
+    <p class="section-sub">Nuestros mejores platos siempre Asu Punto!</p>
 
     <div class="grid">
       <div class="card">
@@ -537,28 +533,28 @@
 
   <!-- MENÚ / CARTA + MENÚ DEL DÍA -->
   <section id="carta" class="cards-light">
-    <h2 class="section-title">Menú / Carta</h2>
+    <h2 class="section-title">Carta / Menù</h2>
     <p class="section-sub">
-      Puedes enlazar tu carta PDF (ej: carta.pdf). También puedes editar el “Menú del día” aquí mismo.
+      Todas nuestras cartas a tu alcance!
     </p>
 
     <div class="menu-day">
       <div class="menu-box">
-        <h3>📄 Carta completa (PDF)</h3>
+        <h3>📄 Cartas</h3>
         <p style="margin:0; color:rgba(229,231,235,.80); line-height:1.6;">
-          Sube un archivo llamado <b>carta.pdf</b> en la misma carpeta y activa este botón:
+          Desayunos, Combos Especiales, Cócteles y más!
         </p>
         <div class="loc-actions">
           <a href="carta.pdf" target="_blank" rel="noopener">Ver carta PDF</a>
         </div>
-        <div class="edit-hint">Si todavía no tienes PDF, déjalo así y luego lo conectamos.</div>
+        <div class="edit-hint">AsuPunto.pe</div>
       </div>
 
       <div class="menu-box">
-        <h3>🍛 Menú del día (editable)</h3>
-        <div class="edit-hint">Edita este bloque y listo (sin tocar diseño).</div>
+        <h3>🍛 Menú del día</h3>
+        <div class="edit-hint">Entrantes y segundos siempre variables, manteniendo nuestros ceviche Asu Punto</div>
         <ul id="menuDia">
-          <li><b>Entrantes:</b> Ceviche · Causa · Tiradito · Sopa</li>
+          <li><b>Entrantes:</b> Ceviche · Causa · Yuquitas · Sopa de casa</li>
           <li><b>Segundos:</b> Arroz con pollo · Pollo a la brasa · Chicharrón · Tallarín</li>
           <li><b>Precio:</b> 13€ (incluye bebida y postre)</li>
         </ul>
@@ -569,7 +565,7 @@
   <!-- LOCALES -->
   <section id="locales">
     <h2 class="section-title">Locales</h2>
-    <p class="section-sub">Edita dirección, metro y horario. En “Cómo llegar” pega tu link de Google Maps.</p>
+    <p class="section-sub">Encuentranos en nuestros locales màs cercanos, con la misma cálida atención y sazón, para los paladares mas exigentes!</p>
 
     <div class="grid">
       <div class="card">
@@ -585,7 +581,7 @@
         <h3>📍 Hospitalet</h3>
         <p>Carrer de Toledo 10, Hospitalet<br>🚆 L5 CANVIDALET<br>🕒 Horario: 12:00–23:00</p>
         <div class="loc-actions">
-          <a href="https://www.google.com/maps/search/?api=1&query=Carrer%20de%20Toledo%2010%20Hospitalet" target="_blank" rel="noopener">🗺️ Cómo llegar</a>
+          <a href="https://www.google.com/maps/place/ASU+PUNTO/@41.3756863,2.1007927,19.04z/data=!4m6!3m5!1s0x12a499c65f1df9db:0xd33bef46c58cf936!8m2!3d41.3757047!4d2.1013179!16s%2Fg%2F11fs0nspf_?entry=ttu&g_ep=EgoyMDI2MDMxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">🗺️ Cómo llegar</a>
           <a href="https://wa.me/34631766551?text=Hola%20ASU%20PUNTO%2C%20quisiera%20reservar%20en%20Hospitalet." target="_blank" rel="noopener">💬 Reservar</a>
         </div>
       </div>
@@ -600,39 +596,51 @@
     </div>
   </section>
 
-  <!-- RESEÑAS -->
-  <section id="resenas" class="cards-light">
-    <h2 class="section-title">Reseñas</h2>
-    <p class="section-sub">Deja 6–9 reseñas cortas. (Luego, si quieres, integramos Google Reviews con API).</p>
-    <div class="grid">
-      <div class="card"><h3>★★★★★</h3><p>“Reseña 1 (edita texto)”</p></div>
-      <div class="card"><h3>★★★★★</h3><p>“Reseña 2 (edita texto)”</p></div>
-      <div class="card"><h3>★★★★★</h3><p>“Reseña 3 (edita texto)”</p></div>
-      <div class="card"><h3>★★★★★</h3><p>“Reseña 4 (edita texto)”</p></div>
-      <div class="card"><h3>★★★★★</h3><p>“Reseña 5 (edita texto)”</p></div>
-      <div class="card"><h3>★★★★★</h3><p>“Reseña 6 (edita texto)”</p></div>
-    </div>
-  </section>
+<!-- RESEÑAS -->
+<section id="resenas" class="cards-light">
+  <h2 class="section-title">Reseñas</h2>
+  <p class="section-sub">Opiniones reales de nuestros clientes.</p>
 
+  <div class="loc-actions" style="margin: 12px 0 22px;">
+    <a href="https://www.google.com/maps/place/Asu+Punto+Sant+Boi/@41.355302,2.0217452,14.5z/data=!4m14!1m7!3m6!1s0x12a499c65f1df9db:0xd33bef46c58cf936!2sASU+PUNTO!8m2!3d41.3757047!4d2.1013179!16s%2Fg%2F11fs0nspf_!3m5!1s0x12a49bcc848a462d:0x75b65689ce5a9bca!8m2!3d41.3559665!4d2.0337809!16s%2Fg%2F11x281t9bz?entry=ttu&g_ep=EgoyMDI2MDMxNy4wIKXMDSoASAFQAw%3D%3De"
+       target="_blank" rel="noopener">
+      ⭐ Ver reseñas en Google
+    </a>
+    <a href="https://www.google.com/maps/place/Asu+Punto+Sant+Boi/@41.355302,2.0217452,14.5z/data=!4m14!1m7!3m6!1s0x12a499c65f1df9db:0xd33bef46c58cf936!2sASU+PUNTO!8m2!3d41.3757047!4d2.1013179!16s%2Fg%2F11fs0nspf_!3m5!1s0x12a49bcc848a462d:0x75b65689ce5a9bca!8m2!3d41.3559665!4d2.0337809!16s%2Fg%2F11x281t9bz?entry=ttu&g_ep=EgoyMDI2MDMxNy4wIKXMDSoASAFQAw%3D%3De"
+       target="_blank" rel="noopener">
+      ✍️ Dejar una reseña
+    </a>
+  </div>
+
+  <div class="grid">
+    <div class="card"><h3>★★★★★ <span style="opacity:.7;font-weight:700;">— Cliente</span></h3><p>“He comido aquí tres días seguidos y este último éramos 13 personas. Aunque el local no es muy grande, nos prepararon la mesa y estuvimos muy a gusto. Esperamos un poco para comer pero valió la pena. Luis fue muy amable y nos atendió muy bien. Calidad precio genial!! Precios módicos y buena cantidad. Repetiremos seguro!”</p></div>
+    <div class="card"><h3>★★★★★ <span style="opacity:.7;font-weight:700;">— Cliente</span></h3><p>“Todo genial no solo la comida (deliciosa) sino las camareras Milagros y Alexandra tuvieron el detalle de traerle a mi pareja un pastel con vela por su cumpleaños 😀”</p></div>
+    <div class="card"><h3>★★★★★ <span style="opacity:.7;font-weight:700;">— Cliente</span></h3><p>“Muy buena comida, y muy buen servicio, el mesero Luis nos atendió genial! sin duda calidad, cantidad, precio super bien. Repetiremos!”</p></div>
+    <div class="card"><h3>★★★★★ <span style="opacity:.7;font-weight:700;">— Cliente</span></h3><p>“Excelente atención por parte de Luis, comida peruana buenísima y a muy buen precio. Volveremos sin duda!”</p></div>
+    <div class="card"><h3>★★★★★ <span style="opacity:.7;font-weight:700;">— Cliente</span></h3><p>“Estupenda comida peruana en un local sencillo. Raciones abundantes y muy bien cocinadas. Excelente el trato de Luis, el camarero. Volveremos!”</p></div>
+    <div class="card"><h3>★★★★★ <span style="opacity:.7;font-weight:700;">— Cliente</span></h3><p>“Hoy hemos comido aqui por primera vez y felicitarlos por habernos sorprendido gratamente.Los platos muy buenos y generosos,muy buena atención,si no conoces los platos te explican lo que llevan.Muy limpio y acogedor.Volveremos !”</p></div>
+  </div>
+</section>
+  
   <!-- GALERÍA -->
   <section id="galeria">
     <h2 class="section-title">Galería</h2>
-    <p class="section-sub">Pon 9–12 fotos: (gal1.jpg … gal12.jpg). Solo sube las imágenes con esos nombres y listo.</p>
+    <p class="section-sub">Organizamos todo tipo de reuniones y eventos</p>
 
     <div class="grid">
       <!-- 12 placeholders -->
-      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal1.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal1.jpg</div></div></div>
-      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal2.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal2.jpg</div></div></div>
-      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal3.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal3.jpg</div></div></div>
-      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal4.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal4.jpg</div></div></div>
-      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal5.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal5.jpg</div></div></div>
-      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal6.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal6.jpg</div></div></div>
-      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal7.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal7.jpg</div></div></div>
-      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal8.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal8.jpg</div></div></div>
-      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal9.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal9.jpg</div></div></div>
-      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal10.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal10.jpg</div></div></div>
-      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal11.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal11.jpg</div></div></div>
-      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal12.jpg'); background-size:cover; background-position:center;"><div class="photo-label">FOTO: gal12.jpg</div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal1.jpg'); background-size:cover; background-position:center;"><div class="photo-label"></div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal2.jpg'); background-size:cover; background-position:center;"><div class="photo-label"></div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal3.jpg'); background-size:cover; background-position:center;"><div class="photo-label"></div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal4.jpg'); background-size:cover; background-position:center;"><div class="photo-label"></div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal5.jpg'); background-size:cover; background-position:center;"><div class="photo-label"></div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal6.jpg'); background-size:cover; background-position:center;"><div class="photo-label"></div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal7.jpg'); background-size:cover; background-position:center;"><div class="photo-label"></div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal8.jpg'); background-size:cover; background-position:center;"><div class="photo-label"></div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal9.jpg'); background-size:cover; background-position:center;"><div class="photo-label"></div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal10.jpg'); background-size:cover; background-position:center;"><div class="photo-label"></div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal11.jpg'); background-size:cover; background-position:center;"><div class="photo-label"></div></div></div>
+      <div class="card"><div class="photo" style="min-height:220px; background-image:url('gal12.jpg'); background-size:cover; background-position:center;"><div class="photo-label"></div></div></div>
     </div>
   </section>
 
